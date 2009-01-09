@@ -1,1 +1,15 @@
+Usage:
 
+  $ dolarhoy 
+  1.000 guaranies              0.672 0.780
+  Dolar australiano            2.340 2.460
+  Dolar canadiense             2.810 3.020
+  Dolar estadounidense en $    3.440 3.470
+  Euro                         4.590 4.730
+  Franco suizo                 2.990 3.250
+  Libra esterlina              5.110 5.420
+  Peso chileno                 0.005 0.006
+  Peso mexicano                0.215 0.267
+  Peso uruguayo                0.148 0.168
+  Real                         1.640 1.800
+  Yen                          0.035 0.039

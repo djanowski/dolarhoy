@@ -3,7 +3,8 @@ require 'rubygems'
 require 'iconv'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'dolarhoy', 'currency')
 
-gem 'hpricot' and require 'hpricot'
+gem 'hpricot'
+require 'hpricot'
 
 html = if ARGV.first
   File.read(ARGV.first)
