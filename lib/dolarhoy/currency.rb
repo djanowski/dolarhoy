@@ -30,10 +30,26 @@ class Currency
     name.gsub!('Ú', 'U')
     name.gsub!("\r", " ")
     name.gsub!("\n", " ")
-    name[/^([\w\s\.\$]+)/, 1].strip.capitalize.squeeze(' ')
+    name = name[/^([\w\s\.\$]+)/, 1].strip.capitalize.squeeze(' ')
+    reverse_aliases[name] || name
   end
 
   def to_s
-    "#{name.ljust(28)} #{format buy} #{format sell}"
+    "#{name} #{format buy} #{format sell}"
+  end
+
+  def aliases
+    @aliases ||= YAML.load_file(File.join(File.dirname(__FILE__), '..', '..', 'aliases.yml'))
+  end
+  
+  def reverse_aliases
+    unless @reverse_aliases
+      @reverse_aliases = {}
+      aliases.each do |code,names|
+        [*names].each {|name| @reverse_aliases[name] = code }
+      end
+    end
+
+    @reverse_aliases
   end
 end

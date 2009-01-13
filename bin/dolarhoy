@@ -1,6 +1,7 @@
 #! /usr/bin/env ruby
 require 'rubygems'
 require 'iconv'
+require 'yaml'
 require File.join(File.dirname(__FILE__), '..', 'lib', 'dolarhoy', 'currency')
 
 gem 'hpricot'

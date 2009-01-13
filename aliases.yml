@@ -1,0 +1,35 @@
+USD:
+  - 'Dolar estadounidense en $'
+
+GBP:
+  - 'Libra esterlina'
+
+EUR:
+  - 'Euro'
+
+CAD:
+  - 'Dolar canadiense'
+
+AUD:
+  - 'Dolar australiano'
+
+CHF:
+  - 'Franco suizo'
+
+CLP:
+  - 'Peso chileno'
+
+MXN:
+  - 'Peso mexicano'
+
+UYU:
+  - 'Peso uruguayo'
+
+JPY:
+  - 'Yen'
+
+PYG:
+  - '1.000 guaranies'
+
+BRL:
+  - 'Real'
