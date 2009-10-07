@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'dolarhoy'
-  s.version = '0.1.2'
+  s.version = '0.1.3'
   s.summary = %{A command-line tool for DolarHoy.com.}
   s.date = %q{2009-01-09}
   s.author = "Damian Janowski"
