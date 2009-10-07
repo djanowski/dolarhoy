@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
 
   s.specification_version = 2 if s.respond_to? :specification_version=
 
-  s.files = ["lib/dolarhoy/currency.rb", "aliases.yml", "bin/dolarhoy", "README", "LICENSE", "Rakefile"]
+  s.files = ["lib/dolarhoy/currency.rb", "lib/aliases.yml", "bin/dolarhoy", "README", "LICENSE", "Rakefile"]
 
   s.require_paths = ['lib']
 

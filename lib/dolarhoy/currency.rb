@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Currency
   include Comparable
 
@@ -39,7 +41,7 @@ class Currency
   end
 
   def aliases
-    @aliases ||= YAML.load_file(File.join(File.dirname(__FILE__), '..', '..', 'aliases.yml'))
+    @aliases ||= YAML.load_file(File.expand_path(File.join(File.dirname(__FILE__), '..', 'aliases.yml')))
   end
   
   def reverse_aliases
