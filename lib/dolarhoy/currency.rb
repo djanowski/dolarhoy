@@ -1,5 +1,7 @@
 # encoding: UTF-8
 
+require "yaml"
+
 class Currency
   include Comparable
 
@@ -12,7 +14,7 @@ class Currency
   end
 
   def <=>(other)
-    name <=> other.name
+    self.alias <=> other.alias
   end
 
   def parse(text)
@@ -32,26 +34,33 @@ class Currency
     name.gsub!('Ú', 'U')
     name.gsub!("\r", " ")
     name.gsub!("\n", " ")
-    name = name[/^([\w\s\.\$]+)/, 1].strip.capitalize.squeeze(' ')
-    reverse_aliases[name] || name
+    name[/^([\w\s\.\$]+)/, 1].strip.capitalize.squeeze(' ')
   end
 
   def to_s
-    "#{name} #{format buy} #{format sell}"
+    "#{self.alias} #{format buy} #{format sell} #{format average}"
   end
 
   def aliases
-    @aliases ||= YAML.load_file(File.expand_path(File.join(File.dirname(__FILE__), '..', 'aliases.yml')))
+    @@aliases ||= YAML.load_file(File.expand_path(File.join(File.dirname(__FILE__), '..', 'aliases.yml')))
   end
   
   def reverse_aliases
-    unless @reverse_aliases
-      @reverse_aliases = {}
-      aliases.each do |code,names|
-        [*names].each {|name| @reverse_aliases[name] = code }
-      end
+    @@reverse_aliases ||= aliases.inject({}) do |reverse, (code, names)|
+      [*names].each { |name| reverse[name] = code }
+      reverse
     end
+  end
 
-    @reverse_aliases
+  def aliased?
+    !! self.alias
+  end
+
+  def alias
+    reverse_aliases[name]
+  end
+
+  def average
+    (buy + sell) / 2.0
   end
 end
