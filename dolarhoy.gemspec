@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'dolarhoy'
-  s.version = '0.1.3'
+  s.version = '0.2.0'
   s.summary = %{A command-line tool for DolarHoy.com.}
   s.date = %q{2009-01-09}
   s.author = "Damian Janowski"
@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.bindir = "bin"
   s.executables = "dolarhoy"
 
-  s.add_dependency("hpricot", ">= 0.6")
+  s.add_dependency("nokogiri", ">= 1.4.2")
 end
