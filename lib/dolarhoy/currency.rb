@@ -2,7 +2,7 @@
 
 require "yaml"
 
-class Currency
+class DolarHoy::Currency
   include Comparable
 
   attr_accessor :name, :buy, :sell
@@ -44,7 +44,7 @@ class Currency
   def aliases
     @@aliases ||= YAML.load_file(File.expand_path(File.join(File.dirname(__FILE__), '..', 'aliases.yml')))
   end
-  
+
   def reverse_aliases
     @@reverse_aliases ||= aliases.inject({}) do |reverse, (code, names)|
       [*names].each { |name| reverse[name] = code }
